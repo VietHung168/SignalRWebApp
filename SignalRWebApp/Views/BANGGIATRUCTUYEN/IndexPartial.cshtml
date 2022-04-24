@@ -1,0 +1,125 @@
+﻿@model IEnumerable<SignalRWebApp.Models.BANGGIATRUCTUYEN>
+
+@Html.Hidden("NotifierEntity", (object)ViewBag.NotifierEntity)
+
+<table class="table">
+    <tr>
+        <th rowspan="2" style="text-align:center; background-color red"> @Html.DisplayNameFor(model => model.MACP)</th>
+        <th colspan="6" style="text-align:center">BÊN BÁN</th>
+        <th colspan="2" style="text-align:center">KHỚP LỆNH</th>
+        <th colspan="6" style="text-align:center">BÊN MUA</th>
+        <th rowspan="2" style="text-align:center"> @Html.DisplayNameFor(model => model.TONG)</th>
+
+    </tr>
+    <tr>
+
+        <th class="table-success">
+            @Html.DisplayNameFor(model => model.GIAMUA3)
+        </th>
+        <th class="table-success">
+            @Html.DisplayNameFor(model => model.KLMUA3)
+        </th>
+        <th class="table-success">
+            @Html.DisplayNameFor(model => model.GIAMUA2)
+        </th>
+        <th class="table-success">
+            @Html.DisplayNameFor(model => model.KLMUA2)
+        </th>
+        <th class="table-success">
+            @Html.DisplayNameFor(model => model.GIAMUA1)
+        </th>
+        <th class="table-success">
+            @Html.DisplayNameFor(model => model.KLMUA1)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.KHOPLENHGIA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KHOPLENHKL)
+        </th>
+    
+        <th>
+            @Html.DisplayNameFor(model => model.GIABAN1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KLBAN1)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.GIABAN2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KLBAN2)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.GIABAN3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KLBAN3)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MACP)
+            </td>
+
+            <th>
+                @Html.DisplayFor(modelItem => item.GIAMUA3)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.KLMUA3)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.GIAMUA2)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.KLMUA2)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.GIAMUA1)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.KLMUA1)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.KHOPLENHGIA)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.KHOPLENHKL)
+            </th>
+
+            <th>
+                @Html.DisplayFor(modelItem => item.GIABAN1)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.KLBAN1)
+            </th>
+
+            <th>
+                @Html.DisplayFor(modelItem => item.GIABAN2)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.KLBAN2)
+            </th>
+
+            <th>
+                @Html.DisplayFor(modelItem => item.GIABAN3)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.KLBAN3)
+            </th>
+
+            <th>
+                @Html.DisplayFor(modelItem => item.TONG)
+            </th>
+
+
+        </tr>
+    }
+
+</table>

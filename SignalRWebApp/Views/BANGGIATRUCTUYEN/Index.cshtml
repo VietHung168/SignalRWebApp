@@ -1,0 +1,65 @@
+﻿@model IEnumerable<SignalRWebApp.Models.BANGGIATRUCTUYEN>
+
+@{
+    ViewBag.Title = "BẢNG GIÁ TRỰC TUYẾN";
+}
+
+<h2 style="text-align:center">BẢNG GIÁ TRỰC TUYẾN</h2>
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+<div id="tbs" class="table table-bordered">
+    @Html.Partial("IndexPartial", Model)
+</div>
+
+@section scripts {
+
+    <script src="~/Scripts/jquery.signalR-2.2.0.min.js"></script>
+    <script src="~/signalr/hubs"></script>
+
+    <script type="text/javascript">
+        var signalRHubInitialized = false;
+
+        $(function () {
+            InitializeSignalRHubStore();
+        });
+
+        function InitializeSignalRHubStore() {
+
+            if (signalRHubInitialized)
+                return;
+
+            try {
+                var clientHub = $.connection.bANGGIATRUCTUYENHub;
+                alert(clientHub);
+
+                clientHub.client.broadcastMessage = function (message) {
+                    if (message === "Refresh")
+                        ReloadIndexPartial();
+                };
+
+                $.connection.hub.start().done(function () {
+                    clientHub.server.initialize($("#NotifierEntity").val());
+                    signalRHubInitialized = true;
+                });
+
+            } catch (err) {
+                signalRHubInitialized = false;
+            }
+        };
+
+        function ReloadIndexPartial() {
+          //  alert("load ra")
+            $.post('@(Url.Action("IndexPartial", "BANGGIATRUCTUYEN", null, Request.Url.Scheme))')
+                .done(function (response) {
+                    $("#tbs").html(response)
+                    if (!signalRHubInitialized)
+                        InitializeSignalRHubStore();
+                });
+        };
+    </script>
+
+}
+
+

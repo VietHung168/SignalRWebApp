@@ -1,0 +1,66 @@
+﻿@model IEnumerable<SignalRWebApp.Models.LENHDAT>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>LỆNH ĐẶT</h2>
+    <p>
+        @Html.ActionLink("ĐẶT LỆNH", "Create")
+    </p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MACP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NGAYDAT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LOAIGD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LOAILENH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SOLUONG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GIADAT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TRANGTHAILENH)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MACP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NGAYDAT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LOAIGD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LOAILENH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SOLUONG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GIADAT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TRANGTHAILENH)
+            </td>
+            
+        </tr>
+    }
+
+</table>
